@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name">实验</string>
     <string name="hello_text">你好！</string>
     <string name="button_name">按钮</string>
+    <string name="title">看我的布局:</string>
+    <string name="click_btn">点击这里</string>
+    <string name="check_box">勾选这个!</string>
+    <string name="swith">切换开关</string>
+    <string name="type_hint">在这里输入</string>
+    <string name="toast_msg">更多信息</string>
+    <string name="snack_msg">Snack 展示</string>
+    <string name="snack_action_msg">改变选项</string>
 </resources>
