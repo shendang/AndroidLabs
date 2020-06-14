@@ -11,4 +11,14 @@
     <string name="toast_msg">更多信息</string>
     <string name="snack_msg">Snack 展示</string>
     <string name="snack_action_msg">改变选项</string>
+    <string name="email_title_hint">请输入邮箱：</string>
+    <string name="email_input_hint">在这里输入邮箱</string>
+    <string name="password_title_hint">请输入密码：</string>
+    <string name="profile_title">主页</string>
+    <string name="name_title">名字：</string>
+    <string name="name_input_hint">输入名字</string>
+    <string name="email_title">邮箱：</string>
+    <string name="picture_tile">图片：</string>
+    <string name="take_pic_title">点击上方按钮拍照：</string>
+    <string name="login_btn">登录</string>
 </resources>

@@ -10,4 +10,14 @@
     <string name="toast_msg">Here is more information</string>
     <string name="snack_msg">Snack bar showing</string>
     <string name="snack_action_msg">Switch the box</string>
+    <string name="email_title_hint">Enter your email address:</string>
+    <string name="email_input_hint">Type email here</string>
+    <string name="password_title_hint">Type your password:</string>
+    <string name="profile_title">Your profile</string>
+    <string name="name_title">Your name:</string>
+    <string name="name_input_hint">Enter your name</string>
+    <string name="email_title">Your email:</string>
+    <string name="picture_tile">Your picture</string>
+    <string name="take_pic_title">Click the butto above to take a picture</string>
+    <string name="login_btn">LOGIN</string>
 </resources>
