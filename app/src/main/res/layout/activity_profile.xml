@@ -50,5 +50,12 @@
         android:layout_height="wrap_content"
         android:text="@string/take_pic_title"/>
 
+    <Button
+        android:id="@+id/go_to_chat_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Go to Chat"
+        />
+
 
 </LinearLayout>

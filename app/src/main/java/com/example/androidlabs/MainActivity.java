@@ -23,7 +23,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
         prefs = getSharedPreferences("account", Context.MODE_PRIVATE);
         String emailAddress = prefs.getString("emailAddress","");
         String password = prefs.getString("passWord","");
