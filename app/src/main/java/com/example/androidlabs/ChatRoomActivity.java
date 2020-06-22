@@ -97,7 +97,7 @@ public class ChatRoomActivity extends AppCompatActivity {
 
             //make a new row:
             View newView = inflater.inflate(
-                    (msg.getAvator().equals("send")?R.layout.row_send_layout:R.layout.row_receive_layout),
+                    (msg.getAvator().equals("send")?R.layout.row_receive_layout:R.layout.row_send_layout),
                     parent, false);
 
             //set what the text should be for this row:
