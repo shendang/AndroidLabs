@@ -21,4 +21,7 @@
     <string name="picture_tile">图片：</string>
     <string name="take_pic_title">点击上方按钮拍照：</string>
     <string name="login_btn">登录</string>
+    <string name="send_btn_text">发送</string>
+    <string name="receive_btn_text">接收</string>
+    <string name="edit_text_hint">输入</string>
 </resources>

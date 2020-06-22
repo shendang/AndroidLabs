@@ -20,4 +20,7 @@
     <string name="picture_tile">Your picture</string>
     <string name="take_pic_title">Click the butto above to take a picture</string>
     <string name="login_btn">LOGIN</string>
+    <string name="send_btn_text">send</string>
+    <string name="receive_btn_text">receive</string>
+    <string name="edit_text_hint">Type here</string>
 </resources>
