@@ -39,7 +39,7 @@ public class ChatRoomActivity extends AppCompatActivity {
         sendBtn.setOnClickListener(click->{
            String text =  msgEditText.getText().toString();
            if(text!=null && text.length()>0){
-               Message msg = new Message(text,"send");
+               Message msg = new Message(text,true);
                msgElements.add(msg);
                msgAdapter.notifyDataSetChanged();
                msgEditText.setText("");
@@ -49,7 +49,7 @@ public class ChatRoomActivity extends AppCompatActivity {
         receiveBtn.setOnClickListener(click->{
             String text =  msgEditText.getText().toString();
             if(text!=null && text.length()>0){
-                Message msg = new Message(text,"receive");
+                Message msg = new Message(text,false);
                 msgElements.add(msg);
                 msgAdapter.notifyDataSetChanged();
                 msgEditText.setText("");
@@ -97,7 +97,7 @@ public class ChatRoomActivity extends AppCompatActivity {
 
             //make a new row:
             View newView = inflater.inflate(
-                    (msg.getAvator().equals("send")?R.layout.row_receive_layout:R.layout.row_send_layout),
+                    (msg.isSent()?R.layout.row_receive_layout:R.layout.row_send_layout),
                     parent, false);
 
             //set what the text should be for this row:
