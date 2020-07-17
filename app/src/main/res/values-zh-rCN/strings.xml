@@ -24,4 +24,6 @@
     <string name="send_btn_text">发送</string>
     <string name="receive_btn_text">接收</string>
     <string name="edit_text_hint">输入</string>
+    <string name="go_to_chat_btn">聊天</string>
+    <string name="go_to_weather_btn">天气</string>
 </resources>

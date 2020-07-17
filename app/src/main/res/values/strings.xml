@@ -23,4 +23,6 @@
     <string name="send_btn_text">send</string>
     <string name="receive_btn_text">receive</string>
     <string name="edit_text_hint">Type here</string>
+    <string name="go_to_chat_btn">GoToChat</string>
+    <string name="go_to_weather_btn">GoToWeather</string>
 </resources>
