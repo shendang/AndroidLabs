@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:layout_marginTop="27dp"
+    android:layout_marginBottom="27dp"
+    android:layout_marginLeft="48dp"
+    android:layout_marginRight="48dp"
+    >
 
 
     <TextView
@@ -19,7 +24,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:hint="@string/name_input_hint"/>
+        android:hint="@string/name_input_hint"
+        android:nextFocusLeft="@id/go_to_weather_btn"
+        android:nextFocusRight="@id/email"
+        android:nextFocusUp="@id/go_to_weather_btn"
+        android:nextFocusDown="@id/email"/>
 
     <TextView
         android:layout_width="match_parent"
@@ -31,7 +40,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/email_input_hint"
-        android:inputType="textEmailAddress"/>
+        android:inputType="textEmailAddress"
+        android:nextFocusLeft="@id/name"
+        android:nextFocusRight="@id/takePictureBtn"
+        android:nextFocusUp="@id/name"
+        android:nextFocusDown="@id/takePictureBtn"/>
 
     <TextView
         android:layout_width="match_parent"
@@ -43,6 +56,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:src="@drawable/flag"
+        android:nextFocusLeft="@id/email"
+        android:nextFocusRight="@id/go_to_chat_btn"
+        android:nextFocusUp="@id/email"
+        android:nextFocusDown="@id/go_to_chat_btn"
         />
 
     <TextView
@@ -55,6 +72,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/go_to_chat_btn"
+        android:nextFocusLeft="@id/takePictureBtn"
+        android:nextFocusRight="@id/go_to_weather_btn"
+        android:nextFocusUp="@id/takePictureBtn"
+        android:nextFocusDown="@id/go_to_weather_btn"
         />
 
 
@@ -63,6 +84,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/go_to_weather_btn"
+        android:nextFocusLeft="@id/go_to_chat_btn"
+        android:nextFocusRight="@id/name"
+        android:nextFocusUp="@id/go_to_chat_btn"
+        android:nextFocusDown="@id/name"
         />
 
 

@@ -1,36 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginLeft="48dp"
+    android:layout_marginTop="27dp"
+    android:layout_marginRight="48dp"
+    android:layout_marginBottom="27dp"
+    android:orientation="vertical">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/email_title"
-        />
+        android:text="@string/email_title" />
 
     <EditText
         android:id="@+id/emailAddress"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:hint="@string/email_input_hint"
         android:inputType="textEmailAddress"
-        android:hint="@string/email_input_hint"/>
+        android:nextFocusLeft="@id/emailAddress"
+        android:nextFocusRight="@id/passWord"
+        android:nextFocusUp="@id/emailAddress"
+        android:nextFocusDown="@id/passWord" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/password_title_hint"/>
+        android:text="@string/password_title_hint"
+        />
 
     <EditText
         android:id="@+id/passWord"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="textPassword"/>
+        android:inputType="textPassword"
+        android:nextFocusLeft="@id/passWord"
+        android:nextFocusRight="@id/loginBtn"
+        android:nextFocusUp="@id/passWord"
+        android:nextFocusDown="@id/loginBtn" />
 
     <Button
         android:id="@+id/loginBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/login_btn"/>
+        android:text="@string/login_btn"
+        android:nextFocusLeft="@id/passWord"
+        android:nextFocusRight="@id/emailAddress"
+        android:nextFocusUp="@id/passWord"
+        android:nextFocusDown="@id/emailAddress" />
 
 </LinearLayout>
