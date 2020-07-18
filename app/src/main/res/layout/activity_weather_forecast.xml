@@ -5,32 +5,32 @@
     android:layout_height="match_parent">
 
     <ImageView
+        android:id="@+id/temp_icon_image_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/row_recieve"
         />
 
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/current_temp_text_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="TextView" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/max_temp_text_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="TextView" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/min_temp_text_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="TextView" />
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/uv_text_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="TextView" />
@@ -38,6 +38,7 @@
     <ProgressBar
         android:id="@+id/progressBar"
         style="?android:attr/progressBarStyleHorizontal"
+        android:visibility="invisible"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 </LinearLayout>
