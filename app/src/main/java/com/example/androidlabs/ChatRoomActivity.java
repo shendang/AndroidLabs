@@ -28,7 +28,6 @@ public class ChatRoomActivity extends AppCompatActivity {
         setContentView(R.layout.activity_chat_room);
 
 
-
         Button sendBtn = findViewById(R.id.send_btn);
         Button receiveBtn = findViewById(R.id.receive_btn);
         ListView msgList = findViewById(R.id.msg_list);
@@ -36,36 +35,37 @@ public class ChatRoomActivity extends AppCompatActivity {
 
         msgList.setAdapter(msgAdapter = new MsgListAdapter());
 
-        sendBtn.setOnClickListener(click->{
-           String text =  msgEditText.getText().toString();
-           if(text!=null && text.length()>0){
-               Message msg = new Message(text,true);
-               msgElements.add(msg);
-               msgAdapter.notifyDataSetChanged();
-               msgEditText.setText("");
-           }
-        });
-
-        receiveBtn.setOnClickListener(click->{
-            String text =  msgEditText.getText().toString();
-            if(text!=null && text.length()>0){
-                Message msg = new Message(text,false);
+        sendBtn.setOnClickListener(click -> {
+            String text = msgEditText.getText().toString();
+            if (text != null && text.length() > 0) {
+                Message msg = new Message(text, true);
                 msgElements.add(msg);
                 msgAdapter.notifyDataSetChanged();
                 msgEditText.setText("");
             }
         });
 
-        msgList.setOnItemClickListener( (parent, view, pos, id) ->{
+        receiveBtn.setOnClickListener(click -> {
+            String text = msgEditText.getText().toString();
+            if (text != null && text.length() > 0) {
+                Message msg = new Message(text, false);
+                msgElements.add(msg);
+                msgAdapter.notifyDataSetChanged();
+                msgEditText.setText("");
+            }
+        });
+
+        msgList.setOnItemClickListener((parent, view, pos, id) -> {
             AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
 
             alertDialogBuilder.setTitle("Do you want to delete this?")
-                    .setMessage("The selected row is: "+pos+", The database id is: "+id)
+                    .setMessage("The selected row is: " + pos + ", The database id is: " + id)
                     .setPositiveButton("Yes", (click, arg) -> {
                         msgElements.remove(pos);
                         msgAdapter.notifyDataSetChanged();
                     })
-                    .setNegativeButton("No", (click, arg) -> { })
+                    .setNegativeButton("No", (click, arg) -> {
+                    })
                     .create().show();
         });
 
@@ -73,7 +73,7 @@ public class ChatRoomActivity extends AppCompatActivity {
     }
 
 
-    private class MsgListAdapter extends BaseAdapter{
+    private class MsgListAdapter extends BaseAdapter {
 
         @Override
         public int getCount() {
@@ -97,12 +97,12 @@ public class ChatRoomActivity extends AppCompatActivity {
 
             //make a new row:
             View newView = inflater.inflate(
-                    (msg.isSent()?R.layout.row_receive_layout:R.layout.row_send_layout),
+                    (msg.isSent() ? R.layout.row_receive_layout : R.layout.row_send_layout),
                     parent, false);
 
             //set what the text should be for this row:
             TextView tView = newView.findViewById(R.id.textGoesHere);
-            tView.setText( msg.getMsg() );
+            tView.setText(msg.getMsg());
 
             //return it to be put in the table
             return newView;
