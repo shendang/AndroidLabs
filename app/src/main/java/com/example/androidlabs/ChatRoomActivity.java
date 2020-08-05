@@ -4,6 +4,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.ContentValues;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -28,11 +29,19 @@ public class ChatRoomActivity extends AppCompatActivity {
     private MsgListAdapter msgAdapter;
     SQLiteDatabase db;
 
+
+    public static final String ITEM_SELECTED = "ITEM";
+    public static final String ITEM_POSITION = "POSITION";
+    public static final String ITEM_ID = "ID";
+    public static final String ITEM_IS_SEND = "IS_SEND";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat_room);
 
+
+        boolean isTablet = findViewById(R.id.fragment) != null; //check if the FrameLayout is loaded
 
         Button sendBtn = findViewById(R.id.send_btn);
         Button receiveBtn = findViewById(R.id.receive_btn);
@@ -84,6 +93,37 @@ public class ChatRoomActivity extends AppCompatActivity {
         });
 
         msgList.setOnItemClickListener((parent, view, pos, id) -> {
+
+            //Create a bundle to pass data to the new fragment
+            Bundle dataToPass = new Bundle();
+            dataToPass.putString(ITEM_SELECTED, msgElements.get(pos).getMsg());
+            dataToPass.putInt(ITEM_POSITION, pos);
+            dataToPass.putLong(ITEM_ID, id);
+            if (msgElements.get(pos).isSent() == true) {
+                dataToPass.putString(ITEM_IS_SEND, "true");
+            } else {
+                dataToPass.putString(ITEM_IS_SEND, "false");
+            }
+
+            if (isTablet) {
+                DetailsFragment dFragment = new DetailsFragment(); //add a DetailFragment
+                dFragment.setArguments(dataToPass); //pass it a bundle for information
+                getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.fragment, dFragment) //Add the fragment in FrameLayout
+                        .commit(); //actually load the fragment. Calls onCreate() in DetailFragment
+            } else {
+                Intent msgDetailActivity = new Intent(this, EmptyActivity.class);
+                msgDetailActivity.putExtras(dataToPass);
+                startActivity(msgDetailActivity);
+            }
+
+        });
+
+
+        msgList.setOnItemLongClickListener((parent, view, pos, id) -> {
+
+
             AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
 
             alertDialogBuilder.setTitle("Do you want to delete this?")
@@ -94,8 +134,9 @@ public class ChatRoomActivity extends AppCompatActivity {
                         msgAdapter.notifyDataSetChanged();
                     })
                     .setNegativeButton("No", (click, arg) -> {
-                    })
-                    .create().show();
+                    });
+
+            return true;
         });
         String[] columns = {MsgOpener.COL_ID, MsgOpener.COL_MSG, MsgOpener.COL_IS_SEND};
         Cursor results = db.query(false, MsgOpener.TABLE_NAME, columns, null, null, null, null, null, null);
